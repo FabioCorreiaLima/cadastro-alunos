@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Alunos</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: gray;
+            width: 400px;
+            text-align: center;
+            border: 2px solid white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+            text-align: right;
+            margin-right: 20px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+        #info {
+            margin: 10px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <h1>Cadastro de Alunos</h1>
+            <form onsubmit="Cadastrar(); return false;">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required><br><br>
+
+                <label for="curso">Curso:</label>
+                <input type="text" id="curso" name="curso" required><br><br>
+
+                <label for="carga-horaria">Carga Horária Total:</label>
+                <input type="number" id="carga-horaria" name="carga-horaria" required><br><br>
+
+                <label for="carga-horaria-concluida">Carga Horária Concluída:</label>
+                <input type="number" id="carga-horaria-concluida" name="carga-horaria-concluida" required><br><br>
+
+                <button type="submit">Cadastrar</button>
+            </form>
+            <div id="info">
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function Cadastrar() {
+            const form = document.querySelector('form');
+            let nome = document.querySelector('#nome').value;
+            let curso = document.querySelector('#curso').value;
+            let cargaHoraria = document.querySelector('#carga-horaria').value;
+            let cargaHorariaConcluida = document.querySelector('#carga-horaria-concluida').value;
+            document.getElementById('info').innerHTML = `Nome: ${nome} <br> Curso: ${curso}<br>Carga Horária Total: ${cargaHoraria} <br>Carga Horária Concluída: ${cargaHorariaConcluida} <br>Falta(m) ${cargaHoraria - cargaHorariaConcluida} hora(s) para concluir o curso.`;
+        };
+    </script>
+    <!DOCTYPE html>
+</body>
+
+</html>
